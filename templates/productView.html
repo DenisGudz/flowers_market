@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <script src="{{ url_for('static', filename='productView.js') }}" defer></script>
+  <title>Document</title>
+</head>
+<body>
+    <button class="back redirect redirects" onclick="back()">
+        back
+    </button>
+    <div class="container">
+    <section aria-label="Newest Photos">
+    <div class="carousel" data-carousel>
+      <button class="carousel-button prev" data-carousel-button="prev">&#8656;</button>
+      <button class="carousel-button next" data-carousel-button="next">&#8658;</button>
+      <ul data-slides>
+        <li class="slide" data-active>
+          <img src="{{images[0]}}" alt="Nature Image #1">
+        </li>
+        <li class="slide">
+          <img src="{{images[1]}}" alt="Nature Image #2">
+        </li>
+        <li class="slide">
+          <img src="{{images[2]}}" alt="Nature Image #3">
+        </li>
+      </ul>
+    </div>
+  </section>
+  <div>
+  <h2>{{name_price[0]}}</h2>
+  <P>{{name_price[1]}}$</P>
+  </div>
+</div>
+</body>
+</html>

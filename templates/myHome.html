@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    
+
+    <a href="/login">
+        <button class="login redirect redirects">
+            login
+        </button>
+    </a>
+    <a href="/home">
+        <button class="home redirect redirects">
+            home
+        </button>
+    </a>
+    <button onclick="onLogout()">
+      logout
+    </button>
+    <div class="container">
+        <h1 class="addHeader">
+            My home
+        </h1>
+
+        
+        
+        <input class="slogan dataInput" placeholder="input slogan">
+
+        
+
+        <input type="file" class="banner" id="banner" style="display: none;">
+        <label for="banner">
+          +
+        </label>
+        
+        <button onclick="upload()">update</button>
+
+
+        <div class="grid-container">
+            <a class="addProduct" href="/add">
+                +
+            </a>
+            {% for product in products %}
+            <div class="productElement prodcut{{product[3]}}">   
+            <div style="background-image: url({{product[2]}}); background-size: cover;" class="asdf">
+                    <div class="fdsa" style="background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.2), rgba(0,0,0,0.5), rgba(0,0,0,0.9)); padding-top: 30px;">
+                        <div>{{ product[0] }}</div>
+                        <br>
+                        <h6>{{ product[1] }}$</h6>
+                    </div>    
+                </div>
+                <button class="remove" onclick="onRemove(event)">
+                    Remove Product
+                </button>
+            </div> 
+            {% endfor %}
+        </div>
+
+
+
+
+
+    </div>
+</body>
+<script src="{{ url_for('static', filename='myHome.js') }}"></script>
+</html>

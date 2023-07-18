@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    
+    <a href="/login">
+        <button class="login redirect redirects">
+            login
+        </button>
+    </a>
+    <a href="/home">
+        <button class="home redirect redirects">
+            home
+        </button>
+    </a>
+
+    <button class="login redirect redirects" onclick = "onLogout()">
+        Log Out
+    </button>
+    <div class="container">
+        <div>
+        <div class="banner" style="background-image: url({{logo_url}}); background-size: cover; background-position: center;"></div>
+        <!-- <img src={{logo_url}} class="banner" alt="" style="background-size: cover;"> -->
+
+            
+        <h1 class="homeHeader">
+            {{slogan}}
+        </h1>
+
+
+        <!-- <p style="margin-top: 100px;">{{logo_url}}</p> -->
+
+
+        </div>
+
+        <div class="grid-container">
+            {% for product in products %}
+            <a href="/product/{{product[3]}}" class="viewRedirect">
+            <div style="background-image: url({{product[2]}}); background-size: cover; background-position: center;" class="asdf">
+                    <div class="fdsa" style="background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.2), rgba(0,0,0,0.5), rgba(0,0,0,0.9)); padding-top: 30px;">
+                        <div>{{ product[0] }}</div>
+                        <br>
+                        <h6>{{ product[1] }}$</h6>
+                    </div>    
+                </div>
+            </a>    
+            {% endfor %}
+        </div>
+
+
+
+
+        <!-- <input class="productPrice dataInput" placeholder="input price for product">
+        <input class="productName dataInput" type="text" placeholder="input name of product"> -->
+
+
+    </div>
+</body>
+<script src="{{ url_for('static', filename='home.js') }}"></script>
+<!-- </html>    <script src="{{ url_for('static', filename='script.js') }}?arg1={{ arg1 }}&arg2={{ arg2 }}"></script> -->
